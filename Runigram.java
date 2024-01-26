@@ -2,6 +2,8 @@
 // which is part of Java's standard class library.
 import java.awt.Color;
 
+import javax.swing.plaf.basic.BasicSplitPaneDivider;
+
 /** A library of image processing functions. */
 public class Runigram {
 
@@ -30,7 +32,12 @@ public class Runigram {
 		imageOut = scaled(tinypic,3,5);
 		System.out.println();
 		print(imageOut);
-
+		Color c1 = new Color(100, 40, 100);
+		Color c2 = new Color (200,20,40);
+		Color result = blend(c1, c2 , 0.25);
+		System.out.println();
+		print(result);
+		
 
 
 		
@@ -164,8 +171,12 @@ public class Runigram {
 	 * values in the two input color.
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
-		//// Replace the following statement with your code
-		return null;
+		int r=(int) (alpha * c1.getRed() + (1-alpha)* c2.getRed());
+		int g=(int) (alpha * c1.getGreen() + (1-alpha)* c2.getGreen());
+		int b= (int) (alpha * c1.getBlue() + (1-alpha)* c2.getBlue());
+		Color v = new Color (r, g, b);
+		
+		return v;
 	}
 	
 	/**
@@ -175,8 +186,15 @@ public class Runigram {
 	 * The two images must have the same dimensions.
 	 */
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
-		//// Replace the following statement with your code
-		return null;
+		Color [][] result = new Color [image1.length][image1[0].length];
+		for (int i = 0; i < result.length; i++) {
+			for (int j = 0; j < result[0].length; j++) {
+				result[i][j]= blend(image1[i][j], image2[i][j], alpha)
+				
+
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -186,7 +204,18 @@ public class Runigram {
 	 * of the source image.
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
-		//// Replace this comment with your code
+		int i = 0; 
+		double alpha = (n-i)/ n ;
+		Color [][] result = new Color [source.length][source[0].length];
+		if ((target.length != source.length) || (target[0].length != source[0].length)){
+			target = scaled(target, source.length, source[0].length);
+		}
+		for (int i = 0; i < result.length; i++) {
+			for (int j = 0; j < result.length; j++) {
+
+
+			}
+		}
 	}
 	
 	/** Creates a canvas for the given image. */
