@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Editor1",
+            "request": "launch",
+            "mainClass": "Editor1",
+            "projectName": "hw06-ronipalmon_64bde8c9"
+        },
+        {
+            "type": "java",
+            "name": "Runigram",
+            "request": "launch",
+            "mainClass": "Runigram",
+            "projectName": "hw06-ronipalmon_64bde8c9"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Lunch App",
+            "request": "launch",
+            "mainClass": "LoanCalc",
+            "args": [
+                "100000",
+                "5",
+                "12"
+            ]
+        }
+    ]
+}
