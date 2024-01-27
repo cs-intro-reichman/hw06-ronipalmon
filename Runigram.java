@@ -189,7 +189,7 @@ public class Runigram {
 		Color [][] result = new Color [image1.length][image1[0].length];
 		for (int i = 0; i < result.length; i++) {
 			for (int j = 0; j < result[0].length; j++) {
-				result[i][j]= blend(image1[i][j], image2[i][j], alpha)
+				result[i][j]= blend(image1[i][j], image2[i][j], alpha);
 				
 
 			}
@@ -204,17 +204,15 @@ public class Runigram {
 	 * of the source image.
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
-		int i = 0; 
-		double alpha = (n-i)/ n ;
-		Color [][] result = new Color [source.length][source[0].length];
+		
 		if ((target.length != source.length) || (target[0].length != source[0].length)){
-			target = scaled(target, source.length, source[0].length);
+			target = scaled(target, source[0].length, source.length);
 		}
-		for (int i = 0; i < result.length; i++) {
-			for (int j = 0; j < result.length; j++) {
-
-
-			}
+		for (int i = 0; i <= n; i++) {
+			double alpha = (n-i)/ (double) n ;
+			Color[][] blendedImage = blend(source, target, (double) alpha);
+			display(blendedImage);
+			StdDraw.pause(500);
 		}
 	}
 	
